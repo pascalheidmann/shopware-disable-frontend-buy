@@ -37,6 +37,7 @@ class PheidDisableFrontendBuy extends Plugin
             'boolean',
             [
                 'label' => 'Disable buying product',
+                'displayInBackend' => true,
             ]
         );
 
