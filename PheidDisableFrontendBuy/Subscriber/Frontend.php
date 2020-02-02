@@ -42,7 +42,7 @@ class Frontend implements SubscriberInterface
         $qb = $this->connection->createQueryBuilder();
         $qb
             ->from('s_articles_details', 'details')
-            ->leftJoin('details', 's_articles_attributes', 'attr', 'attr.detailId = details.id')
+            ->leftJoin('details', 's_articles_attributes', 'attr', 'attr.articledetailsID = details.id')
             ->select('attr.pheid_disable_buying')
             ->where('details.ordernumber = :number')
             ->setParameter('number', $args->get('id'))
