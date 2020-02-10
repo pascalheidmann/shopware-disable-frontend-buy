@@ -37,7 +37,7 @@ class Frontend implements SubscriberInterface
         ];
     }
 
-    public function onArticleAdd(Enlight_Event_EventArgs $args): bool
+    public function onArticleAdd(Enlight_Event_EventArgs $args): ?bool
     {
         $qb = $this->connection->createQueryBuilder();
         $qb
@@ -50,7 +50,7 @@ class Frontend implements SubscriberInterface
 
         $result = $qb->execute()->fetchColumn();
 
-        return (bool) $result;
+        return $result ? true : null;
     }
 
     public function onAddTemplateDir(): void
